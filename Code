@@ -1,0 +1,31 @@
+
+#define sensorPin 10
+#define Relay_Pin 6 
+int SensorState = 0;
+
+
+void setup() {
+pinMode(sensorPin, INPUT);
+pinMode(Relay_Pin, OUTPUT);
+Serial.begin(9600);
+
+}
+
+void loop() {
+
+ SensorState = digitalRead(sensorPin);
+
+  if(SensorState == LOW){
+     digitalWrite(Relay_Pin, LOW);
+     Serial.println("I dont see anything!");
+     delay(2000);
+     }                             
+     else if (SensorState, HIGH){
+      digitalWrite(Relay_Pin, HIGH);
+      Serial.println("i detect motion!");
+      delay(600000);}  // set this value for how long you want the relay to stay on untill it checks for motion again. current set to 10min
+
+     
+  
+
+}
